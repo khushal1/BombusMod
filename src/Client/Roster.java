@@ -27,6 +27,7 @@
 
 package Client;
 
+import Juick.JuickConfig;
 import Account.Account;
 import Account.AccountSelect;
 import Alerts.AlertCustomize;
@@ -46,6 +47,8 @@ import images.MenuIcons;
 //#ifdef ARCHIVE
 import Archive.ArchiveList;
 //#endif
+import Juick.JuickApi;
+import Juick.ViewBlog;
 import Menu.RosterItemActions;
 import Menu.RosterToolsMenu;
 import Menu.SieNatMenu;
@@ -289,25 +292,25 @@ public class Roster
         if (phoneManufacturer!=Config.NOKIA_9XXX)
             addMenuCommand(cmdQuit);
         
-        cmdActions.setImg(MenuIcons.ICON_ITEM_ACTIONS);
-        cmdStatus.setImg(MenuIcons.ICON_STATUS);
+        cmdActions.img = MenuIcons.ICON_ITEM_ACTIONS;
+        cmdStatus.img = MenuIcons.ICON_STATUS;
 
-        cmdActiveContacts.setImg(MenuIcons.ICON_CONFERENCE);
-        cmdAlert.setImg(MenuIcons.ICON_NOTIFY);
+        cmdActiveContacts.img = MenuIcons.ICON_CONFERENCE;
+        cmdAlert.img = MenuIcons.ICON_NOTIFY;
 //#ifndef WMUC
-        cmdConference.setImg(MenuIcons.ICON_CONFERENCE);
+        cmdConference.img = MenuIcons.ICON_CONFERENCE;
 //#endif
 //#ifdef ARCHIVE
-        cmdArchive.setImg(MenuIcons.ICON_ARCHIVE);
+        cmdArchive.img = MenuIcons.ICON_ARCHIVE;
 //#endif
-        cmdAdd.setImg(MenuIcons.ICON_ADD_CONTACT);
-        cmdTools.setImg(MenuIcons.ICON_SETTINGS);
-        cmdAccount.setImg(MenuIcons.ICON_VCARD);
-        cmdInfo.setImg(MenuIcons.ICON_CHECK_UPD);
+        cmdAdd.img = MenuIcons.ICON_ADD_CONTACT;
+        cmdTools.img = MenuIcons.ICON_SETTINGS;
+        cmdAccount.img = MenuIcons.ICON_VCARD;
+        cmdInfo.img = MenuIcons.ICON_CHECK_UPD;
         if (cf.allowMinimize)
-            cmdMinimize.setImg(MenuIcons.ICON_FILEMAN);
-        cmdCleanAllMessages.setImg(MenuIcons.ICON_CLEAN_MESSAGES);
-        cmdQuit.setImg(MenuIcons.ICON_BUILD_NEW);
+            cmdMinimize.img = MenuIcons.ICON_FILEMAN;
+        cmdCleanAllMessages.img = MenuIcons.ICON_CLEAN_MESSAGES;
+        cmdQuit.img = MenuIcons.ICON_BUILD_NEW;
     }
     
     public void setProgress(String pgs,int percent){
@@ -1274,6 +1277,8 @@ public class Roster
         setQuerySign(false);
         redraw();
     }
+
+    public ViewBlog blog;
     
     public void loginSuccess() {
         theStream.addBlockListener(new EntityCaps());
@@ -1314,6 +1319,7 @@ public class Roster
 //#endif
                 TransferDispatcher.getInstance().addBlockListener();
 //#endif
+        theStream.addBlockListener(new JuickApi());
      
 //#ifdef CAPTCHA
 //#         theStream.addBlockListener(new Captcha());

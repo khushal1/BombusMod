@@ -59,7 +59,7 @@ public class MyMenu extends Menu {
         
         for (int i=0; i<commands.size(); i++) {
             MenuCommand c=(MenuCommand)commands.elementAt(i);
-            addItem(c.getName(), i, c.getImg());
+            addItem(c.name, i, c.img);
         }
 
         show(parentView);
@@ -77,7 +77,7 @@ public class MyMenu extends Menu {
     public MenuCommand getCommand(int index) {
         for (Enumeration command=commands.elements(); command.hasMoreElements();) {
             MenuCommand cmd =(MenuCommand)command.nextElement();
-            if (cmd.getName().equals(getFocusedObject().toString()))
+            if (cmd.name.equals(getFocusedObject().toString()))
                 return cmd;
         }
         return null;

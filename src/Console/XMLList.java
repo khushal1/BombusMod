@@ -53,8 +53,7 @@ public final class XMLList
 //#endif
     
     StanzasList stanzas;
-    private StaticData sd=StaticData.getInstance();
-    
+
     private MenuCommand cmdNew=new MenuCommand(SR.MS_NEW, MenuCommand.SCREEN, 5);
     private MenuCommand cmdEnableDisable=new MenuCommand(SR.MS_ENABLE_DISABLE, MenuCommand.SCREEN, 6);
     private MenuCommand cmdPurge=new MenuCommand(SR.MS_CLEAR_LIST, MenuCommand.SCREEN, 10);

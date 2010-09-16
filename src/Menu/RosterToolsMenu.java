@@ -29,6 +29,7 @@ package Menu;
 //#ifdef CONSOLE
 //# import Console.XMLList;
 //#endif
+import Juick.JuickConfig;
 import Alerts.AlertCustomizeForm;
 import Client.*;
 //#ifdef PRIVACY
@@ -55,6 +56,7 @@ import VCard.VCardEdit;
 import images.MenuIcons;
 import locale.SR;
 import Colors.ColorConfigForm;
+import Juick.ViewBlog;
 //import ui.reconnectWindow;
 //#ifdef USER_KEYS
 //# import ui.keys.UserKeysList;
@@ -183,7 +185,7 @@ public class RosterToolsMenu extends Menu {
 //#             if (cf.lightState)
 //#                 addItem(SR.L_CONFIG, 21, MenuIcons.ICON_SETTINGS);
 //#endif        
-
+        addItem("Juick", 34, MenuIcons.ICON_JUICK);
         addItem(SR.MS_BREAK_CONECTION, 22, MenuIcons.ICON_RECONNECT);
         show(sd.roster);
     }
@@ -308,6 +310,9 @@ public class RosterToolsMenu extends Menu {
 //#                 
 //#                 new LightConfigForm();
 //#endif                
+                return;
+            case 34:
+                sd.roster.blog = new ViewBlog();
                 return;
         }
     }

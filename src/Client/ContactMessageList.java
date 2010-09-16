@@ -92,9 +92,7 @@ public class ContactMessageList extends MessageList {
 //#endif
 //#ifdef CLIPBOARD    
 //#     MenuCommand cmdSendBuffer=new MenuCommand(SR.MS_SEND_BUFFER, MenuCommand.SCREEN, 14);
-//#endif
-
-    StaticData sd = StaticData.getInstance();
+//#endif   
 
 //#ifdef JUICK
 //#     MenuCommand cmdJuickMessageReply=new MenuCommand(SR.MS_JUICK_MESSAGE_REPLY, MenuCommand.SCREEN, 1);

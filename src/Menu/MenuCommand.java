@@ -34,10 +34,10 @@ import ui.IconTextElement;
  * @author ad
  */
 public class MenuCommand extends IconTextElement {
-    String name="";
-    int pos;
-    int map;
-    int img;
+    public String name="";
+    public int pos;
+    public int map;
+    public int img;
 
     public static int OK        = 1;
     public static int SCREEN    = 2;
@@ -52,16 +52,6 @@ public class MenuCommand extends IconTextElement {
         this.map=map;
         this.pos=pos;
     }
+
     
-    public void setImg(int img) {
-        this.img=img;
-    }
-    
-    public int getImg() {
-        return img;
-    }   
-    
-    public String getName() {
-        return name;
-    }
 }

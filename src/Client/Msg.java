@@ -73,6 +73,9 @@ public class Msg {
     public boolean selected;
 
     public boolean oldHighlite;
+
+    public int juickMid;
+    public int replies;
     
     /** Creates a new instance of msg */
     public Msg(int messageType, String from, String subj, String body) {
